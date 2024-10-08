@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Navbar Styling */
+        .navbar {
+            background: linear-gradient(  #6c757d 50%);
+        }
+        .navbar-brand, .navbar-nav .nav-link {
+            color: #343a40; /* Dark text color */
+        }
+        .navbar-nav .nav-link:hover, .navbar-nav .nav-link.active {
+            background-color: rgba(5, 191, 237, 0.1); /* Slight hover background for better visibility */
+        }
+        .navbar-toggler {
+            border-color: rgba(52, 58, 64, 0.5); /* Darker border for toggle button */
+        }
+        .navbar-toggler-icon {
+            background-image: url('data:image/svg+xml;charset=utf8,%3Csvg viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath stroke="rgba(52, 58, 64, 0.5)" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M4 7h22M4 15h22M4 23h22"/%3E%3C/svg%3E'); /* Dark icon for toggle button */
+        }
+    </style>
+</head>
+<body class="bg-dark text-light">
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="#">Dashboard Admin</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#" id="transactionsLink">Transactions</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" id="reportLink">Report</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" id="maintenanceLink">Maintenance</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('home') }}" id="logoutLink">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <h2>Welcome to the Dashboard</h2>
+        <p>Welcome, Admin{{ role }}!</p>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        // Highlight the active link in the navbar
+        const links = document.querySelectorAll('.nav-link');
+        links.forEach(link => {
+            link.addEventListener('click', function() {
+                links.forEach(item => item.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
